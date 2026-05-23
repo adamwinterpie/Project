@@ -75,6 +75,7 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Data squishy bisa memakai properti `media` untuk beberapa gambar/video, misalnya `{ type: "image", src: "images/file.png" }` atau `{ type: "video", src: "videos/file.mp4" }`.
 - File gambar baru diletakkan di folder `images`; file video baru diletakkan di folder `videos`.
 - Properti `image` lama masih didukung sebagai fallback jika `media` belum diisi.
+- Jika `media` belum diisi, carousel sementara memakai gambar starter dari `images/squishy-a.png`, `images/squishy-b.png`, dan `images/squishy-c.png`.
 - Jika sebuah squishy memiliki lebih dari satu media, kartu dan detail inline menampilkan tombol slide sebelumnya/berikutnya.
 - Setiap kartu koleksi bisa diklik.
 - Setelah kartu diklik, kartu tersebut berubah menjadi detail inline di posisi kartu koleksi yang dipilih.
@@ -128,3 +129,4 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Detail squishy sekarang tampil inline menggantikan kartu koleksi yang diklik, bukan muncul di bagian bawah website.
 - Tombol kembali pada detail inline dihapus; klik kartu detail untuk menutup detail dan kembali ke kartu koleksi.
 - Kartu koleksi dan detail inline sekarang mendukung carousel gambar/video melalui properti `media` di data squishy.
+- Carousel sementara otomatis memakai gambar Squishy A, B, dan C agar semua kartu bisa langsung digeser.

@@ -36,6 +36,11 @@ const translations = {
 let currentLanguage = localStorage.getItem("voolatteLanguage") || "id";
 let activeDetailIndex = null;
 const activeMediaIndexes = {};
+const starterMedia = [
+  { type: "image", src: "images/squishy-a.png" },
+  { type: "image", src: "images/squishy-b.png" },
+  { type: "image", src: "images/squishy-c.png" }
+];
 
 if (!translations[currentLanguage]) {
   currentLanguage = "id";
@@ -300,10 +305,11 @@ function getSquishyMedia(squishy) {
   }
 
   if (squishy.image) {
-    return [{ type: "image", src: squishy.image }];
+    const extraMedia = starterMedia.filter((media) => media.src !== squishy.image);
+    return [{ type: "image", src: squishy.image }, ...extraMedia];
   }
 
-  return [];
+  return starterMedia;
 }
 
 function getActiveMediaIndex(squishyIndex, totalMedia) {
