@@ -79,6 +79,7 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Jika sebuah squishy memiliki lebih dari satu media, tombol slide sebelumnya/berikutnya hanya tampil pada detail inline setelah kartu dibuka.
 - Setiap kartu koleksi bisa diklik.
 - Setelah kartu diklik, kartu tersebut berubah menjadi detail inline di posisi kartu koleksi yang dipilih.
+- Saat detail inline membuat kartu terpilih lebih tinggi, kartu lain di baris yang sama tidak ikut memanjang.
 - Detail inline bisa ditutup dengan mengklik kembali kartu detail tersebut.
 - Deskripsi detail squishy tersedia dalam Bahasa Indonesia dan English.
 - Teks "Detail Squishy" sudah dihapus dari kartu detail.
@@ -131,3 +132,4 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Kartu koleksi dan detail inline sekarang mendukung media gambar/video melalui properti `media` di data squishy.
 - Tombol slide carousel hanya tampil pada detail inline, bukan pada daftar kartu koleksi.
 - Carousel sementara otomatis memakai gambar Squishy A, B, dan C agar semua kartu bisa langsung digeser.
+- Grid koleksi memakai alignment atas agar kartu lain tidak ikut stretch saat detail inline terbuka.
