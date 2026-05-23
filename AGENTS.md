@@ -79,10 +79,10 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Jika sebuah squishy memiliki lebih dari satu media, tombol slide sebelumnya/berikutnya hanya tampil pada popup detail setelah kartu dibuka.
 - Setiap kartu koleksi bisa diklik.
 - Setelah kartu diklik, detail squishy muncul sebagai popup modal tanpa mengubah layout daftar koleksi.
-- Popup detail bisa ditutup dengan mengklik kartu popup atau area overlay.
+- Popup detail bisa ditutup dengan tombol "Kembali ke Koleksi" di pojok kanan atas kartu popup atau dengan mengklik area overlay.
 - Deskripsi detail squishy tersedia dalam Bahasa Indonesia dan English.
 - Teks "Detail Squishy" sudah dihapus dari kartu detail.
-- Tombol "Kembali ke Koleksi" / "Back to Collection" sudah tidak ditampilkan pada popup detail.
+- Tombol "Kembali ke Koleksi" / "Back to Collection" ditampilkan di pojok kanan atas popup detail.
 - Footer hanya menampilkan "Voolatte" dan kontak WhatsApp.
 - Kontak footer menampilkan "083817966224 (Adam)" dan link ke `https://wa.me/6283817966224`.
 
@@ -127,7 +127,7 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Teks statis, placeholder search, empty state, aria label kartu, alt gambar, dan deskripsi squishy sudah mengikuti bahasa aktif.
 - Pilihan bahasa disimpan dengan key `voolatteLanguage` di `localStorage`.
 - Detail squishy sekarang tampil sebagai popup modal, sehingga daftar kartu koleksi tidak berubah layout saat kartu dibuka.
-- Tombol kembali pada detail dihapus; klik popup detail atau overlay untuk menutup detail dan kembali ke daftar koleksi.
+- Tombol "Kembali ke Koleksi" ditambahkan di pojok kanan atas popup detail; overlay juga bisa diklik untuk menutup popup.
 - Kartu koleksi dan popup detail sekarang mendukung media gambar/video melalui properti `media` di data squishy.
 - Tombol slide carousel hanya tampil pada popup detail, bukan pada daftar kartu koleksi.
 - Carousel sementara otomatis memakai gambar Squishy A, B, dan C agar semua kartu bisa langsung digeser.

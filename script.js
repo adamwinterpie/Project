@@ -417,6 +417,7 @@ function renderSquishyDetail() {
   const squishy = squishyList[activeDetailIndex];
 
   detailCard.innerHTML = `
+    <button class="detail-close-button" type="button" data-close-detail>${getText("backButton")}</button>
     ${createMediaViewer(squishy, activeDetailIndex, "detail-image", true)}
     <div class="detail-content">
       <h2>${squishy.name}</h2>
@@ -458,6 +459,11 @@ backButton.addEventListener("click", () => {
 });
 
 squishyDetail.addEventListener("click", (event) => {
+  if (event.target.closest("[data-close-detail]")) {
+    closeSquishyDetail();
+    return;
+  }
+
   const mediaButton = event.target.closest("[data-media-action]");
 
   if (mediaButton) {
@@ -478,7 +484,9 @@ squishyDetail.addEventListener("click", (event) => {
     return;
   }
 
-  closeSquishyDetail();
+  if (event.target === squishyDetail) {
+    closeSquishyDetail();
+  }
 });
 
 squishySearch.addEventListener("input", (event) => {
