@@ -396,15 +396,6 @@ function renderSquishyCards(keyword = "") {
   }
 
   squishyGrid.innerHTML = filteredSquishy.map((squishy) => `
-    ${activeDetailIndex === squishy.index ? `
-    <article class="squishy-card-detail" style="--card-color: ${squishy.color};" data-close-detail>
-      ${createMediaViewer(squishy, squishy.index, "detail-image", true)}
-      <div class="detail-content">
-        <h2>${squishy.name}</h2>
-        <p>${squishy.description[currentLanguage]}</p>
-      </div>
-    </article>
-    ` : `
     <article class="squishy-card" data-index="${squishy.index}">
       ${createMediaViewer(squishy, squishy.index, "image-placeholder")}
       <div class="card-content">
@@ -413,39 +404,43 @@ function renderSquishyCards(keyword = "") {
         </button>
       </div>
     </article>
-    `}
   `).join("");
 }
 
-// Fungsi ini membuka tampilan detail saat kartu squishy diklik.
+function renderSquishyDetail() {
+  if (activeDetailIndex === null) {
+    detailCard.innerHTML = "";
+    squishyDetail.classList.add("hidden");
+    return;
+  }
+
+  const squishy = squishyList[activeDetailIndex];
+
+  detailCard.innerHTML = `
+    ${createMediaViewer(squishy, activeDetailIndex, "detail-image", true)}
+    <div class="detail-content">
+      <h2>${squishy.name}</h2>
+      <p>${squishy.description[currentLanguage]}</p>
+    </div>
+  `;
+
+  squishyDetail.classList.remove("hidden");
+}
+
+function closeSquishyDetail() {
+  activeDetailIndex = null;
+  renderSquishyDetail();
+}
+
+// Fungsi ini membuka popup detail saat kartu squishy diklik.
 function showSquishyDetail(index) {
   activeDetailIndex = Number(index);
-  squishyDetail.classList.add("hidden");
-  renderSquishyCards(squishySearch.value);
+  renderSquishyDetail();
 }
 
 // Event klik dibuat di grid agar semua kartu yang dibuat JavaScript bisa merespons.
 squishyGrid.addEventListener("click", (event) => {
-  const mediaButton = event.target.closest("[data-media-action]");
-
-  if (mediaButton) {
-    const squishyIndex = Number(mediaButton.dataset.index);
-    const mediaCount = getSquishyMedia(squishyList[squishyIndex]).length;
-    const direction = mediaButton.dataset.mediaAction === "next" ? 1 : -1;
-
-    activeMediaIndexes[squishyIndex] = getActiveMediaIndex(squishyIndex, mediaCount) + direction;
-    renderSquishyCards(squishySearch.value);
-    return;
-  }
-
   if (event.target.closest("video")) {
-    return;
-  }
-
-  if (event.target.closest("[data-close-detail]")) {
-    squishyDetail.classList.add("hidden");
-    activeDetailIndex = null;
-    renderSquishyCards(squishySearch.value);
     return;
   }
 
@@ -459,9 +454,31 @@ squishyGrid.addEventListener("click", (event) => {
 });
 
 backButton.addEventListener("click", () => {
-  squishyDetail.classList.add("hidden");
-  activeDetailIndex = null;
-  document.querySelector("#galeri").scrollIntoView({ behavior: "smooth" });
+  closeSquishyDetail();
+});
+
+squishyDetail.addEventListener("click", (event) => {
+  const mediaButton = event.target.closest("[data-media-action]");
+
+  if (mediaButton) {
+    const squishyIndex = Number(mediaButton.dataset.index);
+    const mediaCount = getSquishyMedia(squishyList[squishyIndex]).length;
+    const direction = mediaButton.dataset.mediaAction === "next" ? 1 : -1;
+
+    activeMediaIndexes[squishyIndex] = getActiveMediaIndex(squishyIndex, mediaCount) + direction;
+    renderSquishyDetail();
+    return;
+  }
+
+  if (event.target.closest(".media-controls")) {
+    return;
+  }
+
+  if (event.target.closest("video")) {
+    return;
+  }
+
+  closeSquishyDetail();
 });
 
 squishySearch.addEventListener("input", (event) => {

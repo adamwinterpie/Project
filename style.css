@@ -576,12 +576,21 @@ h1 {
 }
 
 .detail-section {
-  width: min(920px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 0 0 82px;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(77, 63, 71, 0.32);
+  backdrop-filter: blur(10px);
 }
 
 .hidden {
+  display: none;
+}
+
+.detail-section .back-button {
   display: none;
 }
 
@@ -599,16 +608,20 @@ h1 {
 }
 
 .detail-card {
+  width: min(920px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
   display: grid;
   grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.05fr);
   gap: 28px;
   align-items: center;
+  overflow: auto;
   padding: 24px;
   background: var(--glass-strong);
   border: 1px solid rgba(255, 214, 231, 0.9);
   border-radius: 8px;
   box-shadow: var(--dream-shadow);
   backdrop-filter: blur(14px);
+  cursor: pointer;
 }
 
 .detail-image {
@@ -797,10 +810,11 @@ h1 {
   }
 
   .detail-section {
-    width: min(100% - 24px, 920px);
+    padding: 12px;
   }
 
   .detail-card {
+    max-height: calc(100vh - 24px);
     padding: 16px;
   }
 

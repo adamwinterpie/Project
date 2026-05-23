@@ -76,14 +76,13 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - File gambar baru diletakkan di folder `images`; file video baru diletakkan di folder `videos`.
 - Properti `image` lama masih didukung sebagai fallback jika `media` belum diisi.
 - Jika `media` belum diisi, carousel sementara memakai gambar starter dari `images/squishy-a.png`, `images/squishy-b.png`, dan `images/squishy-c.png`.
-- Jika sebuah squishy memiliki lebih dari satu media, tombol slide sebelumnya/berikutnya hanya tampil pada detail inline setelah kartu dibuka.
+- Jika sebuah squishy memiliki lebih dari satu media, tombol slide sebelumnya/berikutnya hanya tampil pada popup detail setelah kartu dibuka.
 - Setiap kartu koleksi bisa diklik.
-- Setelah kartu diklik, kartu tersebut berubah menjadi detail inline di posisi kartu koleksi yang dipilih.
-- Saat detail inline membuat kartu terpilih lebih tinggi, kartu lain di baris yang sama tidak ikut memanjang.
-- Detail inline bisa ditutup dengan mengklik kembali kartu detail tersebut.
+- Setelah kartu diklik, detail squishy muncul sebagai popup modal tanpa mengubah layout daftar koleksi.
+- Popup detail bisa ditutup dengan mengklik kartu popup atau area overlay.
 - Deskripsi detail squishy tersedia dalam Bahasa Indonesia dan English.
 - Teks "Detail Squishy" sudah dihapus dari kartu detail.
-- Tombol "Kembali ke Koleksi" / "Back to Collection" sudah tidak ditampilkan pada detail inline.
+- Tombol "Kembali ke Koleksi" / "Back to Collection" sudah tidak ditampilkan pada popup detail.
 - Footer hanya menampilkan "Voolatte" dan kontak WhatsApp.
 - Kontak footer menampilkan "083817966224 (Adam)" dan link ke `https://wa.me/6283817966224`.
 
@@ -108,7 +107,7 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 
 - `index.html`: struktur halaman, hero, koleksi, detail squishy, footer, link WhatsApp, dan tombol mode bahasa.
 - `style.css`: background, overlay, glassmorphism, responsif mobile, kartu koleksi, detail squishy, tombol mode bahasa, footer, dan kontak WhatsApp.
-- `script.js`: object terjemahan `translations`, data squishy bilingual, data `media`, pilihan bahasa aktif, render kartu koleksi, carousel gambar/video, search, klik kartu untuk membuka/menutup detail inline.
+- `script.js`: object terjemahan `translations`, data squishy bilingual, data `media`, pilihan bahasa aktif, render kartu koleksi, carousel gambar/video, search, klik kartu untuk membuka/menutup popup detail.
 
 ## Catatan Perubahan Terakhir
 
@@ -127,9 +126,9 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Mode bahasa Indonesia dan English sudah ditambahkan melalui tombol ID/EN di navbar.
 - Teks statis, placeholder search, empty state, aria label kartu, alt gambar, dan deskripsi squishy sudah mengikuti bahasa aktif.
 - Pilihan bahasa disimpan dengan key `voolatteLanguage` di `localStorage`.
-- Detail squishy sekarang tampil inline menggantikan kartu koleksi yang diklik, bukan muncul di bagian bawah website.
-- Tombol kembali pada detail inline dihapus; klik kartu detail untuk menutup detail dan kembali ke kartu koleksi.
-- Kartu koleksi dan detail inline sekarang mendukung media gambar/video melalui properti `media` di data squishy.
-- Tombol slide carousel hanya tampil pada detail inline, bukan pada daftar kartu koleksi.
+- Detail squishy sekarang tampil sebagai popup modal, sehingga daftar kartu koleksi tidak berubah layout saat kartu dibuka.
+- Tombol kembali pada detail dihapus; klik popup detail atau overlay untuk menutup detail dan kembali ke daftar koleksi.
+- Kartu koleksi dan popup detail sekarang mendukung media gambar/video melalui properti `media` di data squishy.
+- Tombol slide carousel hanya tampil pada popup detail, bukan pada daftar kartu koleksi.
 - Carousel sementara otomatis memakai gambar Squishy A, B, dan C agar semua kartu bisa langsung digeser.
-- Grid koleksi memakai alignment atas agar kartu lain tidak ikut stretch saat detail inline terbuka.
+- Grid koleksi tetap stabil karena detail tidak lagi dirender di dalam grid.
