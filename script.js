@@ -363,7 +363,6 @@ function showSquishyDetail(index) {
   `;
 
   squishyDetail.classList.remove("hidden");
-  squishyDetail.scrollIntoView({ behavior: "smooth" });
 }
 
 // Event klik dibuat di grid agar semua kartu yang dibuat JavaScript bisa merespons.

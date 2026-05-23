@@ -71,7 +71,7 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Squishy A, B, dan C memakai gambar asli dari folder `images`.
 - Squishy D sampai Z belum memiliki gambar dan memakai placeholder huruf dari data `icon` di `script.js`.
 - Setiap kartu koleksi bisa diklik.
-- Setelah kartu diklik, muncul bagian detail berisi gambar squishy, nama, dan deskripsi singkat.
+- Setelah kartu diklik, muncul bagian detail berisi gambar squishy, nama, dan deskripsi singkat tanpa scroll otomatis ke bagian detail.
 - Deskripsi detail squishy tersedia dalam Bahasa Indonesia dan English.
 - Teks "Detail Squishy" sudah dihapus dari kartu detail.
 - Tombol detail bertuliskan "Kembali ke Koleksi" / "Back to Collection" dan posisinya berada di bawah kartu detail.
@@ -117,3 +117,4 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Mode bahasa Indonesia dan English sudah ditambahkan melalui tombol ID/EN di navbar.
 - Teks statis, placeholder search, empty state, tombol detail, aria label kartu, alt gambar, dan deskripsi squishy sudah mengikuti bahasa aktif.
 - Pilihan bahasa disimpan dengan key `voolatteLanguage` di `localStorage`.
+- Detail squishy sekarang tetap terbuka tanpa memaksa halaman scroll ke bawah setelah kartu koleksi diklik.
