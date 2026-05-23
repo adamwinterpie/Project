@@ -16,6 +16,13 @@ Nuansa visual yang dipakai adalah strawberry milk aesthetic dan modern cute gall
 - Tidak memakai framework
 - Tidak membutuhkan server lokal untuk dibuka
 
+## Aturan Update Project
+
+- Setiap kali ada perubahan pada project, update `AGENTS.md` agar catatan project tetap sesuai kondisi terbaru.
+- Setelah perubahan selesai dan sudah dicek, buat commit Git dengan pesan yang jelas.
+- Setelah commit berhasil, push perubahan ke GitHub remote `origin/main`.
+- Jangan tinggalkan perubahan penting hanya di lokal kecuali user secara eksplisit meminta untuk tidak commit atau tidak push.
+
 ## Struktur File
 
 ```text
