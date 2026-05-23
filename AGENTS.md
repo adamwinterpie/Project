@@ -6,7 +6,7 @@ Gunakan catatan ini sebagai konteks utama saat melanjutkan project Voolatte.
 
 Voolatte adalah website dummy untuk menampilkan koleksi squishy pribadi.
 Website dibuat dengan tampilan dreamy, creamy, soft pastel, elegant, cozy, dan responsif untuk HP.
-Nuansa visual yang dipakai adalah strawberry milk aesthetic dan modern cute gallery.
+Nuansa visual yang dipakai adalah soft blue dreamy aesthetic dan modern cute gallery.
 
 ## Teknologi
 
@@ -78,9 +78,9 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Ada overlay putih/pink transparan agar teks dan kartu tetap mudah dibaca.
 - Ada efek glow dan bubble transparan ringan lewat pseudo-element CSS.
 - Navbar, hero content, gallery section, detail card, dan footer memakai glassmorphism/blur ringan.
-- Tombol mode bahasa memakai gaya pastel/glassmorphism, dengan state aktif beraksen pink-peach.
+- Tombol mode bahasa memakai gaya pastel/glassmorphism, dengan state aktif beraksen cyan-blue.
 - Search koleksi memakai style pastel/glassmorphism dan responsif; di layar kecil search turun ke bawah judul.
-- Palet warna utama: cream, pastel pink, peach, dan aksen pink.
+- Palet warna utama: icy cream, pastel blue, sky blue, dan aksen cyan-blue.
 - Pertahankan gaya dreamy, creamy, soft pastel, elegant, cozy squishy aesthetic.
 - Jangan membuat background terlalu ramai; fokus utama tetap koleksi squishy.
 - Pertahankan performa ringan, gunakan CSS sederhana, dan jangan menambahkan framework kecuali user meminta.
@@ -110,3 +110,4 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Mode bahasa Indonesia dan English sudah ditambahkan melalui tombol ID/EN di navbar.
 - Teks statis, placeholder search, empty state, tombol detail, aria label kartu, alt gambar, dan deskripsi squishy sudah mengikuti bahasa aktif.
 - Pilihan bahasa disimpan dengan key `voolatteLanguage` di `localStorage`.
+- Tema warna terbaru adalah soft blue dreamy aesthetic.

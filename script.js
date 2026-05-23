@@ -44,7 +44,7 @@ const squishyList = [
       id: "Squishy A memiliki tampilan lucu dengan warna lembut yang cocok untuk koleksi pastel Voolatte.",
       en: "Squishy A has a cute look with soft colors that fit perfectly into Voolatte's pastel collection."
     },
-    color: "#ffe2c8",
+    color: "#dff6ff",
     icon: "A",
     image: "images/squishy-a.png"
   },
@@ -54,7 +54,7 @@ const squishyList = [
       id: "Squishy B terlihat empuk dan menggemaskan, cocok menjadi koleksi favorit untuk pajangan meja.",
       en: "Squishy B looks soft and adorable, making it a sweet favorite for a desk display."
     },
-    color: "#d8ecff",
+    color: "#c9e6ff",
     icon: "B",
     image: "images/squishy-b.png"
   },
@@ -64,7 +64,7 @@ const squishyList = [
       id: "Squishy C punya desain sederhana dan manis, dengan nuansa lembut yang nyaman dilihat.",
       en: "Squishy C has a simple and sweet design with a soft tone that feels easy on the eyes."
     },
-    color: "#ffd6e7",
+    color: "#d7edff",
     icon: "C",
     image: "images/squishy-c.png"
   },
@@ -74,7 +74,7 @@ const squishyList = [
       id: "Squishy D memiliki warna pastel lembut dengan bentuk lucu untuk melengkapi koleksi Voolatte.",
       en: "Squishy D has gentle pastel colors and a cute shape to complete the Voolatte collection."
     },
-    color: "#e8dcff",
+    color: "#e2efff",
     icon: "D"
   },
   {
@@ -83,7 +83,7 @@ const squishyList = [
       id: "Squishy E tampil manis dan empuk dengan nuansa creamy yang nyaman dilihat.",
       en: "Squishy E looks sweet and soft with a creamy tone that feels pleasant to view."
     },
-    color: "#fff2c9",
+    color: "#edf8ff",
     icon: "E"
   },
   {
@@ -92,7 +92,7 @@ const squishyList = [
       id: "Squishy F cocok untuk koleksi meja dengan tampilan sederhana, cerah, dan menggemaskan.",
       en: "Squishy F is great for a desk collection with its simple, bright, and adorable look."
     },
-    color: "#c9f4df",
+    color: "#d8fff4",
     icon: "F"
   },
   {
@@ -101,16 +101,16 @@ const squishyList = [
       id: "Squishy G membawa sentuhan soft pastel yang membuat galeri Voolatte terasa lebih ramai.",
       en: "Squishy G adds a soft pastel touch that makes the Voolatte gallery feel more lively."
     },
-    color: "#d8ecff",
+    color: "#c9e6ff",
     icon: "G"
   },
   {
     name: "Squishy H",
     description: {
-      id: "Squishy H punya karakter lembut dengan warna peach yang hangat dan cozy.",
-      en: "Squishy H has a gentle character with a warm and cozy peach color."
+      id: "Squishy H punya karakter lembut dengan warna biru muda yang tenang dan cozy.",
+      en: "Squishy H has a gentle character with a calm and cozy light blue color."
     },
-    color: "#ffe2c8",
+    color: "#dff6ff",
     icon: "H"
   },
   {
@@ -119,7 +119,7 @@ const squishyList = [
       id: "Squishy I terlihat imut dengan gaya minimalis yang cocok untuk koleksi pastel.",
       en: "Squishy I looks cute with a minimalist style that suits a pastel collection."
     },
-    color: "#ffd6e7",
+    color: "#d7edff",
     icon: "I"
   },
   {
@@ -128,16 +128,16 @@ const squishyList = [
       id: "Squishy J menambahkan variasi warna lembut dan tampilan lucu di koleksi Voolatte.",
       en: "Squishy J adds soft color variety and a cute look to the Voolatte collection."
     },
-    color: "#e8dcff",
+    color: "#e2efff",
     icon: "J"
   },
   {
     name: "Squishy K",
     description: {
-      id: "Squishy K terasa manis dengan desain sederhana dan nuansa strawberry milk.",
-      en: "Squishy K feels sweet with a simple design and a strawberry milk mood."
+      id: "Squishy K terasa manis dengan desain sederhana dan nuansa soft blue.",
+      en: "Squishy K feels sweet with a simple design and a soft blue mood."
     },
-    color: "#fff2c9",
+    color: "#edf8ff",
     icon: "K"
   },
   {
@@ -146,7 +146,7 @@ const squishyList = [
       id: "Squishy L hadir dengan kesan empuk, ringan, dan cocok untuk pajangan koleksi.",
       en: "Squishy L brings a soft, light feel that works well as a collection display."
     },
-    color: "#c9f4df",
+    color: "#d8fff4",
     icon: "L"
   },
   {
@@ -155,7 +155,7 @@ const squishyList = [
       id: "Squishy M memiliki tampilan soft yang membuat koleksi terlihat semakin dreamy.",
       en: "Squishy M has a soft appearance that makes the collection feel even dreamier."
     },
-    color: "#d8ecff",
+    color: "#c9e6ff",
     icon: "M"
   },
   {
@@ -164,7 +164,7 @@ const squishyList = [
       id: "Squishy N tampil kalem dengan warna pastel yang elegan dan tidak terlalu ramai.",
       en: "Squishy N looks calm with elegant pastel colors that are not too busy."
     },
-    color: "#ffe2c8",
+    color: "#dff6ff",
     icon: "N"
   },
   {
@@ -173,7 +173,7 @@ const squishyList = [
       id: "Squishy O membawa suasana cute gallery dengan bentuk sederhana dan lembut.",
       en: "Squishy O brings a cute gallery feel with a simple and gentle shape."
     },
-    color: "#ffd6e7",
+    color: "#d7edff",
     icon: "O"
   },
   {
@@ -182,7 +182,7 @@ const squishyList = [
       id: "Squishy P cocok untuk melengkapi koleksi squishy lucu bertema pastel.",
       en: "Squishy P is a good fit for completing a cute pastel-themed squishy collection."
     },
-    color: "#e8dcff",
+    color: "#e2efff",
     icon: "P"
   },
   {
@@ -191,7 +191,7 @@ const squishyList = [
       id: "Squishy Q punya nuansa creamy yang nyaman dan tampilan yang mudah disukai.",
       en: "Squishy Q has a cozy creamy tone and a look that is easy to love."
     },
-    color: "#fff2c9",
+    color: "#edf8ff",
     icon: "Q"
   },
   {
@@ -200,7 +200,7 @@ const squishyList = [
       id: "Squishy R menambah pilihan koleksi dengan warna lembut dan gaya cozy.",
       en: "Squishy R adds another collection option with soft colors and a cozy style."
     },
-    color: "#c9f4df",
+    color: "#d8fff4",
     icon: "R"
   },
   {
@@ -209,25 +209,25 @@ const squishyList = [
       id: "Squishy S terlihat cerah, imut, dan cocok menjadi bagian dari galeri Voolatte.",
       en: "Squishy S looks bright and cute, making it a fitting part of the Voolatte gallery."
     },
-    color: "#d8ecff",
+    color: "#c9e6ff",
     icon: "S"
   },
   {
     name: "Squishy T",
     description: {
-      id: "Squishy T memiliki desain manis dengan sentuhan peach yang hangat.",
-      en: "Squishy T has a sweet design with a warm peach touch."
+      id: "Squishy T memiliki desain manis dengan sentuhan biru pastel yang lembut.",
+      en: "Squishy T has a sweet design with a soft pastel blue touch."
     },
-    color: "#ffe2c8",
+    color: "#dff6ff",
     icon: "T"
   },
   {
     name: "Squishy U",
     description: {
-      id: "Squishy U menampilkan karakter lembut dengan warna pink pastel yang cute.",
-      en: "Squishy U shows a gentle character with a cute pastel pink color."
+      id: "Squishy U menampilkan karakter lembut dengan warna biru pastel yang cute.",
+      en: "Squishy U shows a gentle character with a cute pastel blue color."
     },
-    color: "#ffd6e7",
+    color: "#d7edff",
     icon: "U"
   },
   {
@@ -236,7 +236,7 @@ const squishyList = [
       id: "Squishy V memberi variasi dreamy dengan warna lavender yang elegan.",
       en: "Squishy V adds a dreamy variation with an elegant lavender color."
     },
-    color: "#e8dcff",
+    color: "#e2efff",
     icon: "V"
   },
   {
@@ -245,7 +245,7 @@ const squishyList = [
       id: "Squishy W tampil creamy dan sederhana untuk memperkaya koleksi squishy.",
       en: "Squishy W looks creamy and simple, adding more charm to the squishy collection."
     },
-    color: "#fff2c9",
+    color: "#edf8ff",
     icon: "W"
   },
   {
@@ -254,7 +254,7 @@ const squishyList = [
       id: "Squishy X punya kesan segar dengan warna lembut yang tetap nyaman dilihat.",
       en: "Squishy X has a fresh impression with soft colors that remain pleasant to view."
     },
-    color: "#c9f4df",
+    color: "#d8fff4",
     icon: "X"
   },
   {
@@ -263,7 +263,7 @@ const squishyList = [
       id: "Squishy Y membawa nuansa biru pastel yang tenang dan lucu untuk koleksi.",
       en: "Squishy Y brings a calm and cute pastel blue tone to the collection."
     },
-    color: "#d8ecff",
+    color: "#c9e6ff",
     icon: "Y"
   },
   {
@@ -272,7 +272,7 @@ const squishyList = [
       id: "Squishy Z menjadi penutup koleksi alfabet dengan tampilan soft dan menggemaskan.",
       en: "Squishy Z closes the alphabet collection with a soft and adorable look."
     },
-    color: "#ffe2c8",
+    color: "#dff6ff",
     icon: "Z"
   }
 ];
