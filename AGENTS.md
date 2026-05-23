@@ -36,6 +36,8 @@ Voolatte
 |   |-- squishy-a.png
 |   |-- squishy-b.png
 |   `-- squishy-c.png
+|-- videos
+|   `-- .gitkeep
 `-- music
     `-- background-music.mp3
 ```
@@ -70,6 +72,10 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Gambar squishy berada di folder `images`.
 - Squishy A, B, dan C memakai gambar asli dari folder `images`.
 - Squishy D sampai Z belum memiliki gambar dan memakai placeholder huruf dari data `icon` di `script.js`.
+- Data squishy bisa memakai properti `media` untuk beberapa gambar/video, misalnya `{ type: "image", src: "images/file.png" }` atau `{ type: "video", src: "videos/file.mp4" }`.
+- File gambar baru diletakkan di folder `images`; file video baru diletakkan di folder `videos`.
+- Properti `image` lama masih didukung sebagai fallback jika `media` belum diisi.
+- Jika sebuah squishy memiliki lebih dari satu media, kartu dan detail inline menampilkan tombol slide sebelumnya/berikutnya.
 - Setiap kartu koleksi bisa diklik.
 - Setelah kartu diklik, kartu tersebut berubah menjadi detail inline di posisi kartu koleksi yang dipilih.
 - Detail inline bisa ditutup dengan mengklik kembali kartu detail tersebut.
@@ -93,13 +99,14 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Jangan membuat background terlalu ramai; fokus utama tetap koleksi squishy.
 - Pertahankan performa ringan, gunakan CSS sederhana, dan jangan menambahkan framework kecuali user meminta.
 - Gunakan komentar singkat hanya pada bagian CSS/JS penting agar mudah dipahami pemula.
-- Jika menambah gambar baru, letakkan di folder `images` dan hubungkan lewat data di `script.js`.
+- Jika menambah gambar baru, letakkan di folder `images` dan hubungkan lewat data `media` di `script.js`.
+- Jika menambah video baru, letakkan di folder `videos` dan hubungkan lewat data `media` di `script.js`.
 
 ## File Penting
 
 - `index.html`: struktur halaman, hero, koleksi, detail squishy, footer, link WhatsApp, dan tombol mode bahasa.
 - `style.css`: background, overlay, glassmorphism, responsif mobile, kartu koleksi, detail squishy, tombol mode bahasa, footer, dan kontak WhatsApp.
-- `script.js`: object terjemahan `translations`, data squishy bilingual, pilihan bahasa aktif, render kartu koleksi, search, klik kartu untuk membuka detail, dan tombol kembali ke koleksi.
+- `script.js`: object terjemahan `translations`, data squishy bilingual, data `media`, pilihan bahasa aktif, render kartu koleksi, carousel gambar/video, search, klik kartu untuk membuka/menutup detail inline.
 
 ## Catatan Perubahan Terakhir
 
@@ -116,7 +123,8 @@ Jika perubahan CSS atau gambar belum terlihat, lakukan hard refresh di browser d
 - Footer sudah disederhanakan menjadi "Voolatte" plus kontak WhatsApp Adam.
 - Background music sempat dicoba, tetapi dibatalkan dan kode audio sudah dihapus dari `index.html` dan `script.js`.
 - Mode bahasa Indonesia dan English sudah ditambahkan melalui tombol ID/EN di navbar.
-- Teks statis, placeholder search, empty state, tombol detail, aria label kartu, alt gambar, dan deskripsi squishy sudah mengikuti bahasa aktif.
+- Teks statis, placeholder search, empty state, aria label kartu, alt gambar, dan deskripsi squishy sudah mengikuti bahasa aktif.
 - Pilihan bahasa disimpan dengan key `voolatteLanguage` di `localStorage`.
 - Detail squishy sekarang tampil inline menggantikan kartu koleksi yang diklik, bukan muncul di bagian bawah website.
 - Tombol kembali pada detail inline dihapus; klik kartu detail untuk menutup detail dan kembali ke kartu koleksi.
+- Kartu koleksi dan detail inline sekarang mendukung carousel gambar/video melalui properti `media` di data squishy.

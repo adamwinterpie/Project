@@ -11,7 +11,8 @@ const translations = {
     emptyState: "Squishy tidak ditemukan.",
     backButton: "Kembali ke Koleksi",
     cardAria: "Lihat detail",
-    closeDetailAria: "Tutup detail",
+    previousMedia: "Media sebelumnya",
+    nextMedia: "Media berikutnya",
     imageAlt: "Foto"
   },
   en: {
@@ -26,19 +27,22 @@ const translations = {
     emptyState: "Squishy not found.",
     backButton: "Back to Collection",
     cardAria: "View details for",
-    closeDetailAria: "Close details for",
+    previousMedia: "Previous media",
+    nextMedia: "Next media",
     imageAlt: "Photo of"
   }
 };
 
 let currentLanguage = localStorage.getItem("voolatteLanguage") || "id";
 let activeDetailIndex = null;
+const activeMediaIndexes = {};
 
 if (!translations[currentLanguage]) {
   currentLanguage = "id";
 }
 
 // Data dummy disimpan di JavaScript agar mudah diganti dengan data asli.
+// Tambahkan beberapa gambar/video dengan format media: [{ type: "image", src: "images/file.png" }, { type: "video", src: "videos/file.mp4" }].
 const squishyList = [
   {
     name: "Squishy A",
@@ -290,12 +294,60 @@ function getText(key) {
   return translations[currentLanguage][key];
 }
 
-function createImageContent(squishy) {
+function getSquishyMedia(squishy) {
+  if (Array.isArray(squishy.media) && squishy.media.length > 0) {
+    return squishy.media;
+  }
+
   if (squishy.image) {
-    return `<img src="${squishy.image}" alt="${getText("imageAlt")} ${squishy.name}">`;
+    return [{ type: "image", src: squishy.image }];
+  }
+
+  return [];
+}
+
+function getActiveMediaIndex(squishyIndex, totalMedia) {
+  if (totalMedia === 0) {
+    return 0;
+  }
+
+  const activeIndex = activeMediaIndexes[squishyIndex] || 0;
+  return ((activeIndex % totalMedia) + totalMedia) % totalMedia;
+}
+
+function createMediaContent(squishy, squishyIndex) {
+  const mediaList = getSquishyMedia(squishy);
+
+  if (mediaList.length > 0) {
+    const media = mediaList[getActiveMediaIndex(squishyIndex, mediaList.length)];
+
+    if (media.type === "video") {
+      return `<video src="${media.src}" controls preload="metadata" aria-label="${getText("imageAlt")} ${squishy.name}"></video>`;
+    }
+
+    return `<img src="${media.src}" alt="${getText("imageAlt")} ${squishy.name}">`;
   }
 
   return `<div class="placeholder-shape" aria-hidden="true">${squishy.icon}</div>`;
+}
+
+function createMediaViewer(squishy, squishyIndex, className) {
+  const mediaList = getSquishyMedia(squishy);
+  const activeIndex = getActiveMediaIndex(squishyIndex, mediaList.length);
+  const controls = mediaList.length > 1 ? `
+    <div class="media-controls" aria-label="${squishy.name} media">
+      <button class="media-button" type="button" data-media-action="previous" data-index="${squishyIndex}" aria-label="${getText("previousMedia")}">&lsaquo;</button>
+      <span class="media-counter">${activeIndex + 1}/${mediaList.length}</span>
+      <button class="media-button" type="button" data-media-action="next" data-index="${squishyIndex}" aria-label="${getText("nextMedia")}">&rsaquo;</button>
+    </div>
+  ` : "";
+
+  return `
+    <div class="${className} media-viewer" style="--card-color: ${squishy.color};">
+      ${createMediaContent(squishy, squishyIndex)}
+      ${controls}
+    </div>
+  `;
 }
 
 function applyLanguage() {
@@ -339,24 +391,22 @@ function renderSquishyCards(keyword = "") {
 
   squishyGrid.innerHTML = filteredSquishy.map((squishy) => `
     ${activeDetailIndex === squishy.index ? `
-    <article class="squishy-card-detail" style="--card-color: ${squishy.color};" data-close-detail role="button" tabindex="0" aria-label="${getText("closeDetailAria")} ${squishy.name}">
-      <div class="detail-image">
-        ${createImageContent(squishy)}
-      </div>
+    <article class="squishy-card-detail" style="--card-color: ${squishy.color};" data-close-detail>
+      ${createMediaViewer(squishy, squishy.index, "detail-image")}
       <div class="detail-content">
         <h2>${squishy.name}</h2>
         <p>${squishy.description[currentLanguage]}</p>
       </div>
     </article>
     ` : `
-    <button class="squishy-card" type="button" data-index="${squishy.index}" aria-label="${getText("cardAria")} ${squishy.name}">
-      <div class="image-placeholder" style="--card-color: ${squishy.color};">
-        ${createImageContent(squishy)}
-      </div>
+    <article class="squishy-card" data-index="${squishy.index}">
+      ${createMediaViewer(squishy, squishy.index, "image-placeholder")}
       <div class="card-content">
-        <h3>${squishy.name}</h3>
+        <button class="card-open-button" type="button" aria-label="${getText("cardAria")} ${squishy.name}">
+          <h3>${squishy.name}</h3>
+        </button>
       </div>
-    </button>
+    </article>
     `}
   `).join("");
 }
@@ -370,6 +420,22 @@ function showSquishyDetail(index) {
 
 // Event klik dibuat di grid agar semua kartu yang dibuat JavaScript bisa merespons.
 squishyGrid.addEventListener("click", (event) => {
+  const mediaButton = event.target.closest("[data-media-action]");
+
+  if (mediaButton) {
+    const squishyIndex = Number(mediaButton.dataset.index);
+    const mediaCount = getSquishyMedia(squishyList[squishyIndex]).length;
+    const direction = mediaButton.dataset.mediaAction === "next" ? 1 : -1;
+
+    activeMediaIndexes[squishyIndex] = getActiveMediaIndex(squishyIndex, mediaCount) + direction;
+    renderSquishyCards(squishySearch.value);
+    return;
+  }
+
+  if (event.target.closest("video")) {
+    return;
+  }
+
   if (event.target.closest("[data-close-detail]")) {
     squishyDetail.classList.add("hidden");
     activeDetailIndex = null;
@@ -384,21 +450,6 @@ squishyGrid.addEventListener("click", (event) => {
   }
 
   showSquishyDetail(selectedCard.dataset.index);
-});
-
-squishyGrid.addEventListener("keydown", (event) => {
-  if (event.key !== "Enter" && event.key !== " ") {
-    return;
-  }
-
-  if (!event.target.closest("[data-close-detail]")) {
-    return;
-  }
-
-  event.preventDefault();
-  squishyDetail.classList.add("hidden");
-  activeDetailIndex = null;
-  renderSquishyCards(squishySearch.value);
 });
 
 backButton.addEventListener("click", () => {
